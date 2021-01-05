@@ -34,5 +34,4 @@ export class AuthorsComponent implements OnInit {
     console.log(text);
     this.store.dispatch(new AuthorSearchAction(new AuthorSearchRequest(text)));
   }
-
 }

@@ -37,6 +37,6 @@ export interface AuthorSearchFailure extends DsError {
  */
 export class AuthorSearchRequest extends DsRequest<AuthorSearchRequestBody, AuthorSearchResponse, AuthorSearchFailure> {
   constructor(public query: string) {
-    super('POST', `/authors?q=${encodeURIComponent(query)}`, null);
+    super('POST', `/authors?q=${query}`, {query: query});
   }
 }
