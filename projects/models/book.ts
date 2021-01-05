@@ -6,10 +6,8 @@
 
 export interface Book {
   bookId: string;
-
   title: string;
   subtitle?: string;
   year: number;
-
   authorId: string;
 }
