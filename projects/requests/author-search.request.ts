@@ -36,7 +36,7 @@ export interface AuthorSearchFailure extends DsError {
  * Its failure response type is AuthorSearchFailure.
  */
 export class AuthorSearchRequest extends DsRequest<AuthorSearchRequestBody, AuthorSearchResponse, AuthorSearchFailure> {
-  constructor(public query: string) {
-    super('POST', `/authors?q=${query}`, {query: query});
+  constructor(public query: string, public body: AuthorSearchRequestBody) {
+    super('POST', `/authors?q=${encodeURIComponent(query)}`, body);
   }
 }

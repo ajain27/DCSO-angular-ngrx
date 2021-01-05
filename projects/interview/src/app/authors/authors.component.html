@@ -21,7 +21,7 @@
     <div *ngIf="numAuthors$ | async" class="list" verticalExpander>
       <!--    TODO: Allow clicking on authors to show a details view, allowing you to see the Author and what other authors the Author has written -->
       <div *ngFor="let author of authors$ | async">
-        <b>{{author.title}}</b>
+        <b>{{author.title}}</b> {{author}}
         <span class="floatRight">{{author.year}}</span>
   
         <div *ngIf="author.subtitle" class="mTopSmall">{{author.subtitle}}</div>

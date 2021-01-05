@@ -32,6 +32,6 @@ export class AuthorsComponent implements OnInit {
 
   search(text: string): void {
     console.log(text);
-    this.store.dispatch(new AuthorSearchAction(new AuthorSearchRequest(text)));
+    this.store.dispatch(new AuthorSearchAction(new AuthorSearchRequest(text, {query: text})));
   }
 }
