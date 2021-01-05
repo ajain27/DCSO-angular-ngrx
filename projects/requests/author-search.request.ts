@@ -8,6 +8,16 @@ import { Author } from '@models/author';
 import { DsRequest } from '@utils/request';
 import { DsError, DsResponse } from '@utils/response';
 
+export interface AuthorSearchStringQuery {
+  query: string;
+}
+
+export interface AuthorSearchIdQuery {
+  bookIds: string[];
+}
+
+export type AuthorSearchRequestBody = AuthorSearchStringQuery | AuthorSearchIdQuery;
+
 export interface AuthorSearchResponse extends DsResponse {
   authors: Author[];
 }
@@ -25,8 +35,8 @@ export interface AuthorSearchFailure extends DsError {
  * Its successful response type is AuthorSearchResponse.
  * Its failure response type is AuthorSearchFailure.
  */
-export class AuthorSearchRequest extends DsRequest<null, AuthorSearchResponse, AuthorSearchFailure> {
+export class AuthorSearchRequest extends DsRequest<AuthorSearchRequestBody, AuthorSearchResponse, AuthorSearchFailure> {
   constructor(public query: string) {
-    super('GET', `/authors?q=${encodeURIComponent(query)}`, null);
+    super('POST', `/authors?q=${encodeURIComponent(query)}`, null);
   }
 }

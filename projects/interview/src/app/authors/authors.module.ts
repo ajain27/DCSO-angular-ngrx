@@ -9,23 +9,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { SharedModule } from '../shared/shared.module';
-import { BooksComponent } from './books.component';
-import { BooksEffects } from './store/books.effects';
-import { booksReducer } from './store/books.reducer';
+import { AuthorsComponent } from './authors.component';
+import { AuthorsEffects } from './store/authors.effects';
+import { authorsReducer } from './store/authors.reducer';
 
 const routes: Routes = [
-  {path: '', component: BooksComponent, data: {title: 'Books'}}
-  // {path: '/authors', component: AuthorsComponent, data: {title: 'Authors'}}
+  {path: '', component: AuthorsComponent, data: {title: 'Authors'}}
 ];
 
 @NgModule({
-  declarations: [BooksComponent],
+  declarations: [AuthorsComponent],
   imports: [
     SharedModule,
-    EffectsModule.forFeature([BooksEffects]),
-    StoreModule.forFeature('books', booksReducer),
+    EffectsModule.forFeature([AuthorsEffects]),
+    StoreModule.forFeature('authors', authorsReducer),
     RouterModule.forChild(routes)
   ]
 })
-export class BooksModule {
-}
+export class AuthorsModule {}
