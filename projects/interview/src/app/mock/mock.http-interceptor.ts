@@ -10,9 +10,11 @@ import { Observable, timer } from 'rxjs';
 import { mapTo } from 'rxjs/operators';
 import { DscoHttpRequest } from '../shared/http.service';
 import { BooksMocks } from './books.mocks';
+import { AuthorsMocks } from './authors.mocks';
 import { mocks, registerMockClass } from './mock';
 
 registerMockClass(BooksMocks);
+registerMockClass(AuthorsMocks);
 
 export class MockHttpInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

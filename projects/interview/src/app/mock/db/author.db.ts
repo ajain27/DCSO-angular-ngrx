@@ -5,7 +5,7 @@
  */
 
 import { Author } from '@models/author';
-import { AuthorSearchRequest } from '@requests/author-search.request';
+// import { AuthorSearchRequest } from '@requests/author-search.request';
 import { getRandomItem, randomInt } from '@utils/random';
 import { generateRandomMockBook } from './book.db';
 
@@ -44,7 +44,6 @@ function generateMockAuthor(): void {
     age: randomInt(10, 100),
     bookIds
   };
-
   mockAuthors.push(result);
 }
 

@@ -21,10 +21,12 @@
     <div *ngIf="numAuthors$ | async" class="list" verticalExpander>
       <!--    TODO: Allow clicking on authors to show a details view, allowing you to see the Author and what other authors the Author has written -->
       <div *ngFor="let author of authors$ | async">
-        <b>{{author.title}}</b> {{author}}
-        <span class="floatRight">{{author.year}}</span>
-  
-        <div *ngIf="author.subtitle" class="mTopSmall">{{author.subtitle}}</div>
+        <b>{{author.firstName}} {{author.lastName}}</b>
+        <ul style="list-style: none; padding: 0;">
+          <span><strong>Books: </strong></span><li>{{author.bookIds}}</li>
+        </ul>
+        <span class="floatRight"><strong>Author Id: </strong>{{author.authorId}}</span>  
+        <div *ngIf="author.firstName" class="mTopSmall"><strong>Age: </strong>{{author.age}}</div>
       </div>
     </div>
   

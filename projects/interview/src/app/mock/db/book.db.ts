@@ -30,9 +30,7 @@ export function generateRandomMockBook(authorId: string): Book {
     year: randomInt(1900, 2020),
     authorId
   };
-
   mockBooks.push(result);
-
   return result;
 }
 
